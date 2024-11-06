@@ -11,9 +11,10 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 var __param = (this && this.__param) || function (paramIndex, decorator) {
     return function (target, key) { decorator(target, key, paramIndex); }
 };
+var _a, _b;
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.CategoryController = void 0;
-const Category_entity_1 = require("../entities/Category-entity");
+const Category_entity_1 = require("src/entities/Category-entity");
 const common_1 = require("@nestjs/common");
 const category_service_1 = require("../services/category-service");
 let CategoryController = class CategoryController {
@@ -67,14 +68,14 @@ __decorate([
     (0, common_1.Post)(),
     __param(0, (0, common_1.Body)()),
     __metadata("design:type", Function),
-    __metadata("design:paramtypes", [Category_entity_1.Category]),
+    __metadata("design:paramtypes", [typeof (_a = typeof Category_entity_1.Category !== "undefined" && Category_entity_1.Category) === "function" ? _a : Object]),
     __metadata("design:returntype", Promise)
 ], CategoryController.prototype, "create", null);
 __decorate([
     (0, common_1.Put)(':id'),
     __param(0, (0, common_1.Param)('id', common_1.ParseIntPipe)),
     __metadata("design:type", Function),
-    __metadata("design:paramtypes", [Number, Category_entity_1.Category]),
+    __metadata("design:paramtypes", [Number, typeof (_b = typeof Category_entity_1.Category !== "undefined" && Category_entity_1.Category) === "function" ? _b : Object]),
     __metadata("design:returntype", Promise)
 ], CategoryController.prototype, "update", null);
 __decorate([

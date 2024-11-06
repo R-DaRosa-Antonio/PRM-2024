@@ -1,6 +1,6 @@
-import { Category } from 'src/entities/Category-entity';
+import { Category } from 'src/categories/category-entity';
 import { Body, Controller, Delete, Get, HttpCode, HttpException, HttpStatus, Param, ParseIntPipe, Post, Put} from '@nestjs/common';
-import { CategoryService } from '../services/category-service';
+import { CategoryService } from '../categories/category-service';
 
 
 @Controller('categories')

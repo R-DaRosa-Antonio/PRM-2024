@@ -1,7 +1,7 @@
-import { Category } from './../entities/category-entity';
+import { Category } from '../categories/category-entity';
 import { Body, Controller, Delete, Get, HttpCode, HttpException, HttpStatus, Param, ParseUUIDPipe, Post, Put, Query } from '@nestjs/common';
-import { Movie } from '../entities/movie-entity';
-import { MovieService } from '../services/movie-service';
+import { Movie } from './movie-entity';
+import { MovieService } from './movie-service';
 
 
 @Controller('movies')

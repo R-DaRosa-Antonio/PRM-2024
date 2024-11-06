@@ -1,7 +1,7 @@
-import { Category } from './../entities/category-entity';
+import { Category } from '../categories/category-entity';
 import { Injectable} from "@nestjs/common";
 import { InjectRepository } from "@nestjs/typeorm";
-import { Movie } from "src/entities/movie-entity";
+import { Movie } from "src/movies/movie-entity";
 import { Repository } from "typeorm";
 
 
