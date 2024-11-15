@@ -12,6 +12,7 @@ const config_1 = require("@nestjs/config");
 const typeorm_1 = require("@nestjs/typeorm");
 const category_module_1 = require("./categories/category-module");
 const movie_module_1 = require("./movies/movie-module");
+const genre_module_1 = require("./genre/genre-module");
 let AppModule = class AppModule {
 };
 exports.AppModule = AppModule;
@@ -33,6 +34,7 @@ exports.AppModule = AppModule = __decorate([
             }),
             category_module_1.CategoryModule,
             movie_module_1.MovieModule,
+            genre_module_1.GenreModule
         ],
     })
 ], AppModule);
