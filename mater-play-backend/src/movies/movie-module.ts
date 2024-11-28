@@ -1,3 +1,4 @@
+import { SupabaseModule } from './../@libs/supabase/supabase.module';
 import { MovieController } from './movie-controller';
 import { Module} from "@nestjs/common";
 import { MovieService } from "./movie-service";
@@ -7,7 +8,7 @@ import { Movie } from './movie-entity';
 
 
 @Module({
-    imports:[TypeOrmModule.forFeature([Category, Movie])],
+    imports:[TypeOrmModule.forFeature([Category, Movie])], SupabaseModule,
     providers:[MovieService],
     controllers: [MovieController],
 

@@ -1,14 +1,17 @@
+import { SupabaseService } from './../@libs/supabase/supabase.service';
 import { Category } from '../categories/category-entity';
-import { Body, Controller, Delete, Get, HttpCode, HttpException, HttpStatus, Param, ParseUUIDPipe, Post, Put, Query } from '@nestjs/common';
+import { Body, Controller, Delete, Get, HttpCode, HttpException, HttpStatus, Param, ParseUUIDPipe, Post, Put, Query, UploadedFile, UseInterceptors } from '@nestjs/common';
 import { Movie } from './movie-entity';
 import { MovieService } from './movie-service';
+import { FileInterceptor } from '@nestjs/platform-express';
 
 
 @Controller('movies')
 export class MovieController {
 
     constructor(
-        private service: MovieService
+        private readonly service: MovieService,
+        private readonly SupabaseService: SupabaseService
     ) {}
 
     @Get()    
@@ -74,5 +77,24 @@ export class MovieController {
         return this.service.remove(id);
     }
 
-}
+    @Post(':id/upload')
+    @UseInterceptors(FileInterceptor('file'))
+    async uploadFile(@UploadedFile()file: Express.Multer.File){
 
+        if(!file){
+            throw new HttpException('File not exist', HttpStatus.BAD_REQUEST); 
+
+        }
+
+        const result = await this.SupabaseService.upload(file);
+
+        if(result){
+            throw new HttpException('Unable to upload file', HttpStatus.INTERNAL_SERVER_ERROR);
+
+
+        };
+
+        return result;
+    }
+
+}
